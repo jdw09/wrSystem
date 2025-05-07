@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예약하기</title>
+    <link rel="stylesheet" th:href="@{/index.css}">
+</head>
+<body>
+    <header>
+        <h1><img th:src="@{/img/Logo.png}" alt="Logo" id="logo"></h1>
+    </header>
+    <hr>
+    <div class="body">
+        <form action="/submit" method="post">
+            <select name="id" id="options">
+                <option value=1>통돌이 세탁기</option>
+                <option value=2>드럼 세탁기 1</option>
+                <option value=3>드럼 세탁기 2</option>
+                <option value=4>건조기 1</option>
+                <option value=5>건조기 2</option>
+            </select>
+            <!-- <input type="time" name="time"> -->
+            <!-- <button id="resbtn">예약하기</button> -->
+            <button id="resbtn" class="reservation">사용/사용종료 하기</button>
+        </form>
+    </div>
+</body>
+</html>

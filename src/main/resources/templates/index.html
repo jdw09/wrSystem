@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대소고 세탁/건조 예약 시스템</title>
+    <link rel="stylesheet" th:href="@{/index.css?after}">
+    <script>
+        function changeColor() {
+            var washers = document.getElementsByClassName("status");
+            for (var i = 0; i < washers.length; i++) {
+                var washer = washers[i];
+                var content = washer.textContent;
+
+                if (content === "true" || content === "사용 가능") {
+                    washer.style.color = "green";
+                    washer.textContent = "사용 가능";
+                } else {
+                    washer.style.color = "red";
+                    washer.textContent = "사용 중";
+                }
+            }
+        }
+
+        window.onload = function() {
+            changeColor();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1><img th:src="@{/img/Logo.png}" alt="Logo" id="logo"></h1>
+    </header>
+    <hr>
+    <div class="body">
+        <ul>
+            <li th:each="washer : ${washers}">
+                <div class="laundry">
+                    <div class="information">
+                        <img th:src="@{/img/washer.png}" alt="washerico">
+                        <h2>[[${washer.name}]]</h2>
+                        <p>[[${washer.location}]]</p>
+                    </div>
+                    <p class="status">[[${washer.using}]]</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <a href="/reservation"><button class="reservation">세탁/건조 예약하기</button></a> -->
+    <a href="/reservation"><button class="reservation">세탁/건조기 사용하기</button></a>
+
+
+    
+</body>
+</html>
